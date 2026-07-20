@@ -1006,6 +1006,67 @@ footer{
 .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s ease,transform 0.7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
+/* ─── CONTACT FORM ───────────────────────────────────────── */
+.contact-form{display:flex;flex-direction:column;gap:1.5rem}
+
+.form-group{display:flex;flex-direction:column;gap:0.6rem}
+
+.form-label{
+  font-family:'Space Mono',monospace;font-size:0.65rem;
+  color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;
+  font-weight:700;
+}
+
+.form-input{
+  background:linear-gradient(135deg, rgba(0,212,255,0.03), rgba(124,58,237,0.02));
+  border:1px solid var(--border);border-radius:10px;
+  padding:0.9rem 1.1rem;color:var(--text);font-family:'Space Mono',monospace;
+  font-size:0.85rem;transition:all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter:blur(10px);
+}
+
+.form-input::placeholder{color:var(--muted);opacity:0.6}
+
+.form-input:focus{
+  outline:none;border-color:var(--accent);
+  box-shadow:0 0 20px rgba(0,212,255,0.2);
+  background:linear-gradient(135deg, rgba(0,212,255,0.08), rgba(124,58,237,0.04));
+}
+
+.btn-send{
+  background:linear-gradient(135deg, var(--accent), var(--accent2));
+  color:var(--bg);border:none;border-radius:10px;padding:1rem 1.8rem;
+  font-family:'Space Mono',monospace;font-size:0.75rem;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;
+  transition:all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display:flex;align-items:center;justify-content:center;gap:0.6rem;
+  box-shadow:0 10px 30px rgba(0,212,255,0.2);width:100%;
+}
+
+.btn-send:hover{
+  transform:translateY(-4px);box-shadow:0 15px 45px rgba(0,212,255,0.4);
+}
+
+.btn-send:disabled{
+  opacity:0.6;cursor:not-allowed;transform:none;
+}
+
+.form-message{
+  font-family:'Space Mono',monospace;font-size:0.8rem;text-align:center;
+  padding:0.8rem;border-radius:8px;display:none;
+  font-weight:600;letter-spacing:0.05em;
+}
+
+.form-message.success{
+  display:block;background:rgba(0,230,118,0.15);
+  border:1px solid rgba(0,230,118,0.4);color:#00e676;
+}
+
+.form-message.error{
+  display:block;background:rgba(255,82,82,0.15);
+  border:1px solid rgba(255,82,82,0.4);color:#ff5252;
+}
+
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
 @media(max-width:1200px){
   .nav-links{gap:1.5rem}
@@ -1053,13 +1114,7 @@ footer{
 </head>
 <body data-view="detailed">
 
-<!-- VIEW TOGGLE -->
-<div class="view-toggle" id="viewToggle">
-  <span class="view-label">View</span>
-  <div class="toggle-switch" id="toggleSwitch">
-    <div class="toggle-circle"></div>
-  </div>
-</div>
+
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
@@ -1514,32 +1569,48 @@ footer{
         <p class="contact-sub">
           I'm open to full-time roles, freelance projects, and exciting collaborations — especially in AI, cloud, and full-stack domains. Drop a message and let's connect!
         </p>
-        <div class="d-flex gap-3 flex-wrap">
-          <a href="mailto:sayalijadhav2017@gmail.com" class="btn-pri">
-            <i class="fa fa-envelope btn-icon"></i>Send Email
+        <div class="contact-links">
+          <a href="mailto:sayalijadhav2017@gmail.com" class="contact-item">
+            <div class="ci-icon"><i class="fa fa-envelope"></i></div>
+            <div><div class="ci-lbl">Email</div><div class="ci-val">sayalijadhav2017@gmail.com</div></div>
           </a>
-          <a href="Sayali-Jadhav-Resume.pdf" download class="btn-download">
-            <i class="fa fa-download btn-icon"></i>Download Resume
+          <a href="tel:+918010139938" class="contact-item">
+            <div class="ci-icon"><i class="fa fa-phone"></i></div>
+            <div><div class="ci-lbl">Phone</div><div class="ci-val">+91 8010139938</div></div>
           </a>
+          <a href="https://linkedin.com/in/sayali-jadhav-1a04ba20a" target="_blank" class="contact-item">
+            <div class="ci-icon"><i class="fab fa-linkedin-in"></i></div>
+            <div><div class="ci-lbl">LinkedIn</div><div class="ci-val">sayali-jadhav</div></div>
+          </a>
+          <div class="contact-item" style="cursor:default">
+            <div class="ci-icon"><i class="fa fa-map-marker-alt"></i></div>
+            <div><div class="ci-lbl">Location</div><div class="ci-val">Pune, Maharashtra, India</div></div>
+          </div>
         </div>
       </div>
-      <div class="contact-links">
-        <a href="mailto:sayalijadhav2017@gmail.com" class="contact-item">
-          <div class="ci-icon"><i class="fa fa-envelope"></i></div>
-          <div><div class="ci-lbl">Email</div><div class="ci-val">sayalijadhav2017@gmail.com</div></div>
-        </a>
-        <a href="tel:+918010139938" class="contact-item">
-          <div class="ci-icon"><i class="fa fa-phone"></i></div>
-          <div><div class="ci-lbl">Phone</div><div class="ci-val">+91 8010139938</div></div>
-        </a>
-        <a href="https://linkedin.com/in/sayali-jadhav-1a04ba20a" target="_blank" class="contact-item">
-          <div class="ci-icon"><i class="fab fa-linkedin-in"></i></div>
-          <div><div class="ci-lbl">LinkedIn</div><div class="ci-val">sayali-jadhav</div></div>
-        </a>
-        <div class="contact-item" style="cursor:default">
-          <div class="ci-icon"><i class="fa fa-map-marker-alt"></i></div>
-          <div><div class="ci-lbl">Location</div><div class="ci-val">Pune, Maharashtra, India</div></div>
-        </div>
+      <div>
+        <form id="contactForm" class="contact-form">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" class="form-input" id="user_name" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" id="user_email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <input type="text" class="form-input" id="subject" placeholder="Project Collaboration / Job Opportunity" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-input" id="message" placeholder="Tell me about your project or opportunity..." rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-send">
+            <i class="fa fa-paper-plane"></i> Send Message
+          </button>
+          <div id="formMessage" class="form-message"></div>
+        </form>
       </div>
     </div>
   </div>
@@ -1562,6 +1633,7 @@ footer{
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
 <script>
   function setTheme(t) {
     document.documentElement.setAttribute('data-theme', t);
@@ -1611,10 +1683,160 @@ footer{
     toggleSwitch.classList.toggle('short');
   });
 
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+  // ═══════════════════════════════════════════════════════════════════════════
+  // EMAIL CONFIGURATION - Replace with YOUR GitHub Secrets
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Get these from your GitHub Repository Secrets:
+  // 1. PUBLIC_KEY → from EmailJS Dashboard → Account → API Keys
+  // 2. SERVICE_ID → Your GitHub Secret: SERVICE_ID
+  // 3. EMAIL_TEMPLATE → Your GitHub Secret: EMAIL_TEMPLATE
+  // ═══════════════════════════════════════════════════════════════════════════
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // ═══════════════════════════════════════════════════════════════════════════
+    // EMAILJS SETUP - Loads from localStorage or shows setup modal
+    // Credentials saved securely in browser - no GitHub secrets needed on client!
+    // ═══════════════════════════════════════════════════════════════════════════
+    
+    // Get saved credentials from localStorage
+    const PUBLIC_KEY = localStorage.getItem('emailjs_public_key');
+    const SERVICE_ID = localStorage.getItem('emailjs_service_id');
+    const EMAIL_TEMPLATE = localStorage.getItem('emailjs_template_id');
+    
+    // Check if all credentials exist
+    if (!PUBLIC_KEY || !SERVICE_ID || !EMAIL_TEMPLATE) {
+      showSetupModal();
+      setupOtherFunctionality();
+      return;
+    }
+    
+    // Initialize EmailJS with stored credentials
+    try {
+      emailjs.init(PUBLIC_KEY);
+      setupContactForm();
+    } catch (error) {
+      showSetupModal('❌ Invalid credentials. Please update them.');
+    }
+    
+    function setupContactForm() {
+      const contactForm = document.getElementById('contactForm');
+      if (!contactForm) return;
+      
+      const formMessage = document.getElementById('formMessage');
+      const sendButton = contactForm.querySelector('.btn-send');
+      
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        sendButton.disabled = true;
+        const originalText = sendButton.innerHTML;
+        sendButton.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
+        formMessage.className = 'form-message';
+        
+        try {
+          await emailjs.sendForm(SERVICE_ID, EMAIL_TEMPLATE, contactForm);
+          
+          formMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+          formMessage.classList.add('success');
+          contactForm.reset();
+          
+          setTimeout(() => {
+            formMessage.className = 'form-message';
+          }, 5000);
+        } catch (error) {
+          // Silent error - user sees friendly message only
+          formMessage.textContent = '✗ Error sending message. Please try again or email directly.';
+          formMessage.classList.add('error');
+        } finally {
+          sendButton.disabled = false;
+          sendButton.innerHTML = originalText;
+        }
+      });
+    }
+    
+    function showSetupModal(message = '') {
+      // Create beautiful setup modal
+      const modalHTML = \`
+        <div id="setupModal" style="display:flex;position:fixed;inset:0;background:rgba(0,0,0,0.95);align-items:center;justify-content:center;z-index:10000;backdrop-filter:blur(5px);">
+          <div style="background:linear-gradient(135deg, rgba(15,20,32,0.98), rgba(19,29,46,0.98));border:1px solid rgba(0,212,255,0.3);border-radius:16px;padding:2.5rem;max-width:500px;width:90%;box-shadow:0 25px 70px rgba(0,212,255,0.3);">
+            <h2 style="color:#e4eaf2;margin-bottom:0.5rem;font-size:1.8rem;font-weight:900;font-family:'Syne',sans-serif;background:linear-gradient(135deg, #00d4ff, #7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">⚡ Setup EmailJS</h2>
+            <p style="color:#8a9db5;margin-bottom:1.5rem;font-family:'Space Mono',monospace;font-size:0.85rem;line-height:1.7;">
+              Paste your 3 credentials once. They're saved in your browser and sent securely to EmailJS only when you submit a message.
+            </p>
+            \${message ? \`<p style="color:#ff5252;background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.3);padding:0.8rem;border-radius:8px;font-family:'Space Mono',monospace;font-size:0.8rem;margin-bottom:1.5rem;">🔴 \${message}</p>\` : ''}
+            <div style="display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2rem;">
+              <div>
+                <label style="color:#00d4ff;font-family:'Space Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:0.6rem;">1. Public Key</label>
+                <input type="password" id="pubKeyInput" placeholder="xABC123..." style="width:100%;background:linear-gradient(135deg, rgba(0,212,255,0.05), rgba(124,58,237,0.02));border:1px solid rgba(0,212,255,0.25);border-radius:10px;padding:0.9rem;color:#e4eaf2;font-family:'Space Mono',monospace;font-size:0.85rem;box-sizing:border-box;transition:all 0.3s;outline:none;" onfocus="this.style.borderColor='#00d4ff';this.style.boxShadow='0 0 20px rgba(0,212,255,0.2)'">
+              </div>
+              <div>
+                <label style="color:#00d4ff;font-family:'Space Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:0.6rem;">2. Service ID</label>
+                <input type="text" id="serviceIdInput" placeholder="service_abc123..." style="width:100%;background:linear-gradient(135deg, rgba(0,212,255,0.05), rgba(124,58,237,0.02));border:1px solid rgba(0,212,255,0.25);border-radius:10px;padding:0.9rem;color:#e4eaf2;font-family:'Space Mono',monospace;font-size:0.85rem;box-sizing:border-box;transition:all 0.3s;outline:none;" onfocus="this.style.borderColor='#00d4ff';this.style.boxShadow='0 0 20px rgba(0,212,255,0.2)'">
+              </div>
+              <div>
+                <label style="color:#00d4ff;font-family:'Space Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:0.6rem;">3. Template ID</label>
+                <input type="text" id="templateIdInput" placeholder="template_xyz789..." style="width:100%;background:linear-gradient(135deg, rgba(0,212,255,0.05), rgba(124,58,237,0.02));border:1px solid rgba(0,212,255,0.25);border-radius:10px;padding:0.9rem;color:#e4eaf2;font-family:'Space Mono',monospace;font-size:0.85rem;box-sizing:border-box;transition:all 0.3s;outline:none;" onfocus="this.style.borderColor='#00d4ff';this.style.boxShadow='0 0 20px rgba(0,212,255,0.2)'">
+              </div>
+            </div>
+            <button onclick="saveCredentials()" style="width:100%;background:linear-gradient(135deg, #00d4ff, #7c3aed);color:#0a0e15;border:none;border-radius:10px;padding:1.1rem;font-family:'Space Mono',monospace;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;box-shadow:0 10px 30px rgba(0,212,255,0.3);font-weight:bold;">
+              ✓ Save & Continue
+            </button>
+            <p style="color:#8a9db5;margin-top:1.5rem;font-family:'Space Mono',monospace;font-size:0.7rem;text-align:center;line-height:1.8;">
+              From EmailJS Dashboard → Account → API Keys<br/>
+              Your credentials are stored locally & never sent anywhere else
+            </p>
+          </div>
+        </div>
+      \`;
+      
+      document.body.insertAdjacentHTML('afterbegin', modalHTML);
+      
+      // Make saveCredentials global
+      window.saveCredentials = function() {
+        const pubKey = document.getElementById('pubKeyInput').value.trim();
+        const serviceId = document.getElementById('serviceIdInput').value.trim();
+        const templateId = document.getElementById('templateIdInput').value.trim();
+        
+        if (!pubKey || !serviceId || !templateId) {
+          document.getElementById('setupModal').remove();
+          showSetupModal('⚠️ All 3 fields are required');
+          return;
+        }
+        
+        // Save to localStorage
+        localStorage.setItem('emailjs_public_key', pubKey);
+        localStorage.setItem('emailjs_service_id', serviceId);
+        localStorage.setItem('emailjs_template_id', templateId);
+        
+        // Remove modal
+        document.getElementById('setupModal').remove();
+        
+        // Try to initialize
+        try {
+          emailjs.init(pubKey);
+          setupContactForm();
+        } catch (error) {
+          showSetupModal('❌ Invalid Public Key. Please check and try again.');
+        }
+      };
+      
+      // Allow Enter key to save
+      document.getElementById('templateIdInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') window.saveCredentials();
+      });
+    }
+    
+    function setupOtherFunctionality() {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+    }
+    
+    // Setup other functionality
+    setupOtherFunctionality();
+    
+  }); // End DOMContentLoaded
 </script>
-</body>
 </html>
