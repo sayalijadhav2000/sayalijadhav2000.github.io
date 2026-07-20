@@ -183,37 +183,157 @@ section{position:relative;z-index:1}
   padding:0 0.4rem;font-weight:600;
 }
 
-/* ─── MOBILE MENU ────────────────────────────────────────── */
+/* ─── MOBILE MENU (PREMIUM) ─────────────────────────────── */
 .hamburger{
   display:none;flex-direction:column;gap:5px;
   background:none;border:none;padding:4px;
   cursor:pointer;
+  position:relative;
+  z-index:1001;
 }
 
 .hamburger span{
-  width:24px;height:2.5px;background:var(--accent);display:block;
-  transition:all 0.3s;border-radius:2px;
+  width:26px;height:2.5px;background:var(--accent);display:block;
+  transition:all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius:2px;
+  transform-origin:center;
 }
 
+.hamburger.active span:nth-child(1){
+  transform:rotate(45deg) translateY(12px);
+}
+
+.hamburger.active span:nth-child(2){
+  opacity:0;
+  transform:translateX(-10px);
+}
+
+.hamburger.active span:nth-child(3){
+  transform:rotate(-45deg) translateY(-12px);
+}
+
+/* ─── PREMIUM MOBILE MENU ─────────────────────────────────── */
 .mobile-menu{
   display:none;position:fixed;inset:0;
-  background:var(--nav-bg);z-index:999;
-  flex-direction:column;align-items:center;justify-content:center;
-  gap:2.5rem;backdrop-filter:blur(24px);
+  background:linear-gradient(135deg, var(--bg) 0%, var(--bg2) 50%, var(--bg3) 100%);
+  z-index:999;flex-direction:column;
+  justify-content:flex-start;
+  padding-top:6rem;
+  backdrop-filter:blur(30px);
+  border-right:1px solid var(--border);
+  overflow-y:auto;
+  animation:slideInFromRight 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .mobile-menu.open{display:flex}
 
-.mobile-menu a{
-  font-size:1.8rem;font-weight:800;color:var(--text);
-  text-decoration:none;transition:all 0.2s;
+@keyframes slideInFromRight{
+  from{
+    transform:translateX(100%);
+    opacity:0;
+  }
+  to{
+    transform:translateX(0);
+    opacity:1;
+  }
 }
 
-.mobile-menu a:hover{color:var(--accent);transform:translateX(10px)}
+.mobile-menu-content{
+  width:100%;
+  padding:0 1.5rem;
+}
+
+.mobile-menu-section{
+  margin-bottom:2.5rem;
+}
+
+.mobile-menu-section-label{
+  font-family:'Space Mono',monospace;font-size:0.65rem;
+  color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;
+  margin-bottom:1rem;font-weight:700;
+  opacity:0.7;
+}
+
+.mobile-menu-section a{
+  display:flex;align-items:center;gap:1rem;
+  font-size:1.1rem;font-weight:700;color:var(--text);
+  text-decoration:none;transition:all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding:0.8rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  position:relative;
+  overflow:hidden;
+}
+
+.mobile-menu-section a::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg, var(--accent), var(--accent2));
+  transform:scaleY(0);
+  transform-origin:top;
+  transition:transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mobile-menu-section a:hover{
+  color:var(--accent);
+  transform:translateX(8px);
+}
+
+.mobile-menu-section a:hover::before{
+  transform:scaleY(1);
+}
+
+.mobile-menu-section a i{
+  width:30px;text-align:center;color:var(--accent);font-size:1rem;
+}
+
+.mobile-menu-footer{
+  margin-top:3rem;
+  padding-top:2rem;
+  border-top:1px solid var(--border);
+}
+
+.mobile-theme-section{
+  display:flex;flex-direction:column;gap:1rem;
+}
+
+.mobile-theme-label{
+  font-family:'Space Mono',monospace;font-size:0.65rem;
+  color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;
+  font-weight:700;
+}
+
+.mobile-theme-buttons{
+  display:flex;gap:0.8rem;
+}
+
+.mobile-theme-btn{
+  flex:1;padding:0.75rem;border-radius:8px;
+  background:linear-gradient(135deg, rgba(0,212,255,0.1), rgba(124,58,237,0.05));
+  border:1px solid var(--border);color:var(--text);
+  cursor:pointer;transition:all 0.3s;
+  font-size:0.75rem;font-weight:700;font-family:'Space Mono',monospace;
+}
+
+.mobile-theme-btn:hover{
+  border-color:var(--accent);
+  background:linear-gradient(135deg, rgba(0,212,255,0.15), rgba(124,58,237,0.1));
+  transform:translateY(-2px);
+}
+
+.mobile-theme-btn.active{
+  border-color:var(--accent);
+  box-shadow:0 0 15px var(--accent);
+}
 
 .mobile-close{
   position:absolute;top:1.5rem;right:1.5rem;
-  background:none;border:none;color:var(--accent);font-size:1.5rem;cursor:pointer;
+  background:none;border:none;color:var(--accent);font-size:1.5rem;
+  cursor:pointer;transition:all 0.3s;
+  z-index:1001;
+}
+
+.mobile-close:hover{
+  transform:rotate(90deg);
+  color:var(--accent2);
 }
 
 /* ─── HERO ───────────────────────────────────────────────── */
@@ -1085,6 +1205,10 @@ footer{
   .exp-item{padding-left:54px}
   .exp-dot{width:34px;height:34px;font-size:0.85rem}
   .sec-title{font-size:1.8rem}
+  .mobile-menu{
+    width:100%;
+    padding-top:5rem;
+  }
 }
 
 @media(max-width:576px){
@@ -1104,23 +1228,29 @@ footer{
 </head>
 <body>
 
-<!-- MOBILE MENU -->
+<!-- PREMIUM MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="toggleMenu()"><i class="fa fa-times"></i></button>
-  <a href="#about"      onclick="toggleMenu()">About</a>
-  <a href="#experience" onclick="toggleMenu()">Experience</a>
-  <a href="#projects"   onclick="toggleMenu()">Projects</a>
-  <a href="#strengths"  onclick="toggleMenu()">Strengths</a>
-  <a href="#skills"     onclick="toggleMenu()">Skills</a>
-  <a href="#education"  onclick="toggleMenu()">Education</a>
-  <a href="#awards"     onclick="toggleMenu()">Awards</a>
-  <a href="#contact"    onclick="toggleMenu()">Contact</a>
-  <div class="mobile-theme">
-    <div class="theme-switcher" style="justify-content:center">
-      <span class="theme-label">Theme</span>
-      <button class="theme-btn dark-btn  active" onclick="setTheme('dark')"  title="Dark">D</button>
-      <button class="theme-btn light-btn"         onclick="setTheme('light')" title="Light">L</button>
-      <button class="theme-btn cyber-btn"          onclick="setTheme('cyber')" title="Cyber">C</button>
+  <div class="mobile-menu-content">
+    <div class="mobile-menu-section">
+      <div class="mobile-menu-section-label">Navigation</div>
+      <a href="#about"      onclick="toggleMenu()"><i class="fa fa-user"></i> About</a>
+      <a href="#experience" onclick="toggleMenu()"><i class="fa fa-briefcase"></i> Experience</a>
+      <a href="#projects"   onclick="toggleMenu()"><i class="fa fa-laptop"></i> Projects</a>
+      <a href="#skills"     onclick="toggleMenu()"><i class="fa fa-code"></i> Skills</a>
+      <a href="#education"  onclick="toggleMenu()"><i class="fa fa-graduation-cap"></i> Education</a>
+      <a href="#contact"    onclick="toggleMenu()"><i class="fa fa-paper-plane"></i> Contact</a>
+    </div>
+    
+    <div class="mobile-menu-footer">
+      <div class="mobile-theme-section">
+        <div class="mobile-theme-label">Theme</div>
+        <div class="mobile-theme-buttons">
+          <button class="mobile-theme-btn dark-btn active" onclick="setTheme('dark')" title="Dark">Dark</button>
+          <button class="mobile-theme-btn light-btn" onclick="setTheme('light')" title="Light">Light</button>
+          <button class="mobile-theme-btn cyber-btn" onclick="setTheme('cyber')" title="Cyber">Cyber</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1133,20 +1263,18 @@ footer{
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#strengths">Strengths</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#awards">Awards</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="d-flex align-items-center gap-3">
       <div class="theme-switcher desktop">
         <span class="theme-label">Theme</span>
-        <button class="theme-btn dark-btn  active" onclick="setTheme('dark')"  title="Dark">D</button>
-        <button class="theme-btn light-btn"         onclick="setTheme('light')" title="Light">L</button>
-        <button class="theme-btn cyber-btn"          onclick="setTheme('cyber')" title="Cyber">C</button>
+        <button class="theme-btn dark-btn active" onclick="setTheme('dark')" title="Dark">D</button>
+        <button class="theme-btn light-btn" onclick="setTheme('light')" title="Light">L</button>
+        <button class="theme-btn cyber-btn" onclick="setTheme('cyber')" title="Cyber">C</button>
       </div>
-      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1185,7 +1313,7 @@ footer{
           <div class="stat-item"><div class="stat-num">4.5+</div><div class="stat-label">Years Experience</div></div>
           <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Major Projects</div></div>
           <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">AI Integrations</div></div>
-          <div class="stat-item"><div class="stat-num">70+</div><div class="stat-label">Employee Deployment</div></div>
+          /*<div class="stat-item"><div class="stat-num">70+</div><div class="stat-label">Employee Deployment</div></div>*/
         </div>
       </div>
       <div class="col-lg-5">
@@ -1586,8 +1714,17 @@ footer{
   });
 
   function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    hamburger.classList.toggle('active');
   }
+
+  document.getElementById('mobileMenu').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('mobileMenu')) {
+      toggleMenu();
+    }
+  });
 
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
