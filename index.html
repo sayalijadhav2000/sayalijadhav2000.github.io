@@ -6,7 +6,7 @@
   <title>Sayali Jadhav | Senior Full Stack Developer</title>
   <meta name="description" content="Senior Full Stack Developer — Laravel, Node.js, AI & Azure specialist."/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 <style>
 /* ─── THEMES ─────────────────────────────────────────────── */
@@ -19,12 +19,12 @@
   --accent3:  #f0a500;
   --text:     #e4eaf2;
   --muted:    #8a9db5;
-  --border:   rgba(0,212,255,0.12);
-  --glow:     0 0 40px rgba(0,212,255,0.18);
-  --grid:     rgba(0,212,255,0.02);
+  --border:   rgba(0,212,255,0.25);
+  --glow:     0 0 30px rgba(0,212,255,0.4), 0 0 60px rgba(0,212,255,0.2);
+  --grid:     rgba(0,212,255,0.03);
   --card-bg:  #0f1420;
-  --nav-bg:   rgba(10,14,21,0.95);
-  --shadow:   0 20px 60px rgba(0,0,0,0.5);
+  --nav-bg:   rgba(10,14,21,0.98);
+  --shadow:   0 20px 60px rgba(0,212,255,0.15), 0 0 40px rgba(0,212,255,0.08);
 }
 
 [data-theme="light"] {
@@ -44,29 +44,13 @@
   --shadow:   0 20px 60px rgba(0,0,0,0.08);
 }
 
-[data-theme="cyber"] {
-  --bg:       #0d001a;
-  --bg2:      #130022;
-  --bg3:      #1a0033;
-  --accent:   #c800ff;
-  --accent2:  #00ffcc;
-  --accent3:  #ff2d78;
-  --text:     #f0e6ff;
-  --muted:    #a389cc;
-  --border:   rgba(200,0,255,0.18);
-  --glow:     0 0 40px rgba(200,0,255,0.25);
-  --grid:     rgba(200,0,255,0.04);
-  --card-bg:  #130022;
-  --nav-bg:   rgba(13,0,26,0.95);
-  --shadow:   0 20px 60px rgba(0,0,0,0.6);
-}
-
 /* ─── BASE ───────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{
   background:var(--bg); color:var(--text);
-  font-family:'Syne',sans-serif;
+  font-family:'Roboto',sans-serif;
+  line-height:1.6;
   overflow-x:hidden;
   transition:background 0.4s,color 0.4s;
 }
@@ -101,7 +85,7 @@ section{position:relative;z-index:1}
 }
 
 .nav-logo{
-  font-family:'Space Mono',monospace;font-size:1.1rem;font-weight:700;
+  font-family:'Roboto Mono',monospace;font-size:1.1rem;font-weight:700;
   background:linear-gradient(135deg, var(--accent), var(--accent2));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -118,7 +102,7 @@ section{position:relative;z-index:1}
 .nav-links{display:flex;gap:2rem;list-style:none;flex-wrap:nowrap}
 
 .nav-links a{
-  font-family:'Space Mono',monospace;font-size:0.7rem;
+  font-family:'Roboto Mono',monospace;font-size:0.7rem;
   color:var(--muted);text-decoration:none;
   letter-spacing:0.1em;text-transform:uppercase;
   transition:all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -153,12 +137,11 @@ section{position:relative;z-index:1}
   width:30px;height:30px;border-radius:50%;border:2px solid transparent;
   cursor:pointer;transition:all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   display:flex;align-items:center;justify-content:center;
-  font-size:0.75rem;font-weight:700;font-family:'Space Mono',monospace;
+  font-size:0.75rem;font-weight:700;font-family:'Roboto Mono',monospace;
 }
 
 .theme-btn.dark-btn{ background:rgba(5,10,15,0.6);color:#00d4ff;border-color:#00d4ff33; }
 .theme-btn.light-btn{ background:rgba(240,244,248,0.6);color:#0066dd;border-color:#0066dd33; }
-.theme-btn.cyber-btn{ background:rgba(19,0,34,0.6);color:#c800ff;border-color:#c800ff33; }
 
 .theme-btn.active{
   border-color:var(--accent);box-shadow:0 0 15px var(--accent);
@@ -168,7 +151,7 @@ section{position:relative;z-index:1}
 .theme-btn:hover{ transform:scale(1.2); }
 
 .theme-label{
-  font-family:'Space Mono',monospace;font-size:0.6rem;
+  font-family:'Roboto Mono',monospace;font-size:0.6rem;
   color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;
   padding:0 0.4rem;font-weight:600;
 }
@@ -210,7 +193,7 @@ section{position:relative;z-index:1}
 .mobile-menu-section{margin-bottom:2.5rem}
 
 .mobile-menu-section-label{
-  font-family:'Space Mono',monospace;font-size:0.65rem;
+  font-family:'Roboto Mono',monospace;font-size:0.65rem;
   color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;
   margin-bottom:1rem;font-weight:700;opacity:0.7;
 }
@@ -242,7 +225,7 @@ section{position:relative;z-index:1}
 .mobile-theme-section{display:flex;flex-direction:column;gap:1rem}
 
 .mobile-theme-label{
-  font-family:'Space Mono',monospace;font-size:0.65rem;
+  font-family:'Roboto Mono',monospace;font-size:0.65rem;
   color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;
   font-weight:700;
 }
@@ -253,7 +236,7 @@ section{position:relative;z-index:1}
   flex:1;padding:0.75rem;border-radius:8px;
   background:linear-gradient(135deg, rgba(0,212,255,0.1), rgba(124,58,237,0.05));
   border:1px solid var(--border);color:var(--text);cursor:pointer;
-  transition:all 0.3s;font-size:0.75rem;font-weight:700;font-family:'Space Mono',monospace;
+  transition:all 0.3s;font-size:0.75rem;font-weight:700;font-family:'Roboto Mono',monospace;
 }
 
 .mobile-theme-btn:hover{
@@ -303,7 +286,7 @@ section{position:relative;z-index:1}
 }
 
 .hero-tag{
-  font-family:'Space Mono',monospace;font-size:0.8rem;
+  font-family:'Roboto Mono',monospace;font-size:0.8rem;
   color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;
   margin-bottom:1.5rem;display:flex;align-items:center;gap:0.8rem;font-weight:700;
 }
@@ -314,6 +297,7 @@ section{position:relative;z-index:1}
 }
 
 .hero h1{
+  font-family:'Poppins',sans-serif;
   font-size:clamp(2.8rem, 8vw, 6.5rem);font-weight:900;
   line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.8rem;
   background:linear-gradient(135deg, var(--text) 0%, var(--muted) 100%);
@@ -331,7 +315,7 @@ section{position:relative;z-index:1}
 }
 
 .hero-desc{
-  font-family:'Space Mono',monospace;font-size:0.95rem;
+  font-family:'Roboto Mono',monospace;font-size:0.95rem;
   color:var(--muted);max-width:550px;line-height:1.95;
   margin-bottom:2.8rem;font-weight:500;
 }
@@ -342,7 +326,7 @@ section{position:relative;z-index:1}
 .btn-pri, .btn-ghost, .btn-download {
   position:relative;overflow:hidden;
   display:inline-flex;align-items:center;justify-content:center;gap:0.6rem;
-  padding:0.95rem 2rem;font-family:'Space Mono',monospace;font-size:0.75rem;
+  padding:0.95rem 2rem;font-family:'Roboto Mono',monospace;font-size:0.75rem;
   font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
   border-radius:10px;text-decoration:none;white-space:nowrap;
   transition:all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -408,7 +392,7 @@ section{position:relative;z-index:1}
 }
 
 .stat-label{
-  font-family:'Space Mono',monospace;font-size:0.7rem;
+  font-family:'Roboto Mono',monospace;font-size:0.7rem;
   color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:600;
 }
 
@@ -444,7 +428,7 @@ section{position:relative;z-index:1}
 .float-badge{
   position:absolute;background:rgba(15,20,32,0.8);
   border:1px solid var(--border);border-radius:12px;
-  padding:0.6rem 1rem;font-family:'Space Mono',monospace;
+  padding:0.6rem 1rem;font-family:'Roboto Mono',monospace;
   font-size:0.7rem;color:var(--accent);white-space:nowrap;
   backdrop-filter:blur(15px);animation:flt 3.5s ease-in-out infinite;
   font-weight:600;letter-spacing:0.05em;
@@ -462,7 +446,7 @@ section{position:relative;z-index:1}
 .sec-alt{background:linear-gradient(180deg, var(--bg2) 0%, var(--bg3) 100%);transition:background 0.4s}
 
 .sec-label{
-  font-family:'Space Mono',monospace;font-size:0.75rem;
+  font-family:'Roboto Mono',monospace;font-size:0.75rem;
   color:var(--accent);letter-spacing:0.3em;text-transform:uppercase;
   margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem;font-weight:700;
 }
@@ -474,6 +458,7 @@ section{position:relative;z-index:1}
 }
 
 .sec-title{
+  font-family:'Poppins',sans-serif;
   font-size:clamp(2rem, 5vw, 3.2rem);font-weight:900;
   letter-spacing:-0.02em;margin-bottom:3.5rem;line-height:1.1;
   background:linear-gradient(135deg, var(--text), var(--muted));
@@ -486,8 +471,8 @@ section{position:relative;z-index:1}
 }
 
 .about-text{
-  font-family:'Space Mono',monospace;font-size:0.9rem;
-  color:var(--muted);line-height:2;font-weight:500;
+  font-family:'Roboto',sans-serif;font-size:1rem;
+  color:var(--muted);line-height:1.8;font-weight:400;
 }
 
 .about-text p{margin-bottom:1.3rem}
@@ -526,12 +511,13 @@ section{position:relative;z-index:1}
 }
 
 .info-lbl{
-  font-family:'Space Mono',monospace;font-size:0.65rem;
+  font-family:'Roboto Mono',monospace;font-size:0.65rem;
   color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;font-weight:700;
 }
 
 .info-val{
-  font-size:0.9rem;font-weight:700;color:var(--text);
+  font-family:'Poppins',sans-serif;
+  font-size:0.9rem;font-weight:800;color:var(--text);
   background:linear-gradient(135deg, var(--accent), var(--accent2));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
@@ -585,13 +571,14 @@ section{position:relative;z-index:1}
 }
 
 .exp-title{
+  font-family:'Poppins',sans-serif;
   font-size:1.15rem;font-weight:800;margin-bottom:0.5rem;
   background:linear-gradient(135deg, var(--text), var(--accent));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
 
 .exp-meta{
-  font-family:'Space Mono',monospace;font-size:0.75rem;
+  font-family:'Roboto Mono',monospace;font-size:0.75rem;
   color:var(--accent);margin-bottom:1.3rem;display:flex;gap:1.2rem;flex-wrap:wrap;
   font-weight:600;letter-spacing:0.05em;
 }
@@ -602,7 +589,7 @@ section{position:relative;z-index:1}
 .exp-list{list-style:none}
 
 .exp-list li{
-  font-family:'Space Mono',monospace;font-size:0.82rem;color:var(--muted);
+  font-family:'Roboto Mono',monospace;font-size:0.82rem;color:var(--muted);
   padding:0.6rem 0;border-bottom:1px dashed rgba(255,255,255,0.03);
   display:flex;gap:0.8rem;align-items:flex-start;line-height:1.6;
   font-weight:500;transition:color 0.3s;
@@ -642,7 +629,7 @@ section{position:relative;z-index:1}
 .proj-card:hover::before{opacity:1}
 
 .proj-num{
-  font-family:'Space Mono',monospace;font-size:0.7rem;
+  font-family:'Roboto Mono',monospace;font-size:0.7rem;
   color:var(--accent);letter-spacing:0.2em;margin-bottom:1rem;
   opacity:0.8;text-transform:uppercase;font-weight:700;
 }
@@ -661,6 +648,7 @@ section{position:relative;z-index:1}
 }
 
 .proj-title{
+  font-family:'Poppins',sans-serif;
   font-size:1.1rem;font-weight:800;margin-bottom:0.8rem;line-height:1.3;
   background:linear-gradient(135deg, var(--text), var(--accent));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
@@ -668,14 +656,14 @@ section{position:relative;z-index:1}
 }
 
 .proj-desc{
-  font-family:'Space Mono',monospace;font-size:0.82rem;
+  font-family:'Roboto Mono',monospace;font-size:0.82rem;
   color:var(--muted);line-height:1.8;margin-bottom:1.4rem;flex:1;font-weight:500;
 }
 
 .proj-tags{display:flex;flex-wrap:wrap;gap:0.6rem}
 
 .proj-tag{
-  font-family:'Space Mono',monospace;font-size:0.65rem;
+  font-family:'Roboto Mono',monospace;font-size:0.65rem;
   color:var(--accent);background:linear-gradient(135deg, rgba(0,212,255,0.1), rgba(124,58,237,0.05));
   border:1px solid var(--border);padding:0.35rem 0.8rem;border-radius:6px;
   letter-spacing:0.05em;font-weight:600;transition:all 0.3s;text-transform:uppercase;
@@ -722,7 +710,7 @@ section{position:relative;z-index:1}
 }
 
 .s-title{font-size:0.92rem;font-weight:800;color:var(--text);margin-bottom:0.2rem;line-height:1.3}
-.s-sub{font-family:'Space Mono',monospace;font-size:0.68rem;color:var(--muted);line-height:1.4;font-weight:500}
+.s-sub{font-family:'Roboto Mono',monospace;font-size:0.68rem;color:var(--muted);line-height:1.4;font-weight:500}
 
 /* ─── SKILLS ─────────────────────────────────────────────── */
 .skills-grid{
@@ -753,7 +741,7 @@ section{position:relative;z-index:1}
 }
 
 .skill-cat-ttl{
-  font-family:'Space Mono',monospace;font-size:0.75rem;
+  font-family:'Roboto Mono',monospace;font-size:0.75rem;
   letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.3rem;
   padding-left:0.7rem;font-weight:700;
   background:linear-gradient(135deg, var(--accent), var(--accent2));
@@ -763,7 +751,7 @@ section{position:relative;z-index:1}
 .pills{display:flex;flex-wrap:wrap;gap:0.6rem}
 
 .pill{
-  font-family:'Space Mono',monospace;font-size:0.72rem;
+  font-family:'Roboto Mono',monospace;font-size:0.72rem;
   background:linear-gradient(135deg, rgba(0,212,255,0.1), rgba(124,58,237,0.05));
   border:1px solid var(--border);color:var(--text);padding:0.4rem 0.9rem;
   border-radius:999px;transition:all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -811,12 +799,12 @@ section{position:relative;z-index:1}
 }
 
 .edu-uni{
-  font-family:'Space Mono',monospace;font-size:0.78rem;
+  font-family:'Roboto Mono',monospace;font-size:0.78rem;
   color:var(--accent);margin-bottom:0.5rem;font-weight:700;
 }
 
 .edu-year{
-  font-family:'Space Mono',monospace;font-size:0.72rem;
+  font-family:'Roboto Mono',monospace;font-size:0.72rem;
   color:var(--muted);font-weight:600;letter-spacing:0.05em;
 }
 
@@ -846,9 +834,9 @@ section{position:relative;z-index:1}
   font-size:1.6rem;flex-shrink:0;
 }
 
-.award-title{font-size:1rem;font-weight:800;margin-bottom:0.3rem;color:var(--text)}
-.award-co{font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--accent3);margin-bottom:0.6rem;font-weight:700}
-.award-desc{font-family:'Space Mono',monospace;font-size:0.78rem;color:var(--muted);line-height:1.7;font-weight:500}
+.award-title{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:800;margin-bottom:0.3rem;color:var(--text)}
+.award-co{font-family:'Roboto Mono',monospace;font-size:0.7rem;color:var(--accent3);margin-bottom:0.6rem;font-weight:700}
+.award-desc{font-family:'Roboto Mono',monospace;font-size:0.78rem;color:var(--muted);line-height:1.7;font-weight:500}
 
 /* ─── CONTACT ────────────────────────────────────────────── */
 .contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center}
@@ -862,7 +850,7 @@ section{position:relative;z-index:1}
 .contact-tagline .hl{color:transparent;-webkit-text-stroke:1.5px var(--accent)}
 
 .contact-sub{
-  font-family:'Space Mono',monospace;font-size:0.85rem;
+  font-family:'Roboto Mono',monospace;font-size:0.85rem;
   color:var(--muted);line-height:1.95;margin-bottom:2.2rem;font-weight:500;
 }
 
@@ -890,7 +878,7 @@ section{position:relative;z-index:1}
 }
 
 .ci-lbl{
-  font-family:'Space Mono',monospace;font-size:0.65rem;
+  font-family:'Roboto Mono',monospace;font-size:0.65rem;
   color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:700;
 }
 
@@ -912,14 +900,14 @@ footer{
 }
 
 .foot-logo{
-  font-family:'Space Mono',monospace;font-size:1rem;font-weight:700;
+  font-family:'Roboto Mono',monospace;font-size:1rem;font-weight:700;
   background:linear-gradient(135deg, var(--accent), var(--accent2));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   letter-spacing:0.1em;
 }
 
 .foot-copy{
-  font-family:'Space Mono',monospace;font-size:0.72rem;
+  font-family:'Roboto Mono',monospace;font-size:0.72rem;
   color:var(--muted);font-weight:600;
 }
 
@@ -950,7 +938,7 @@ footer{
 .form-group{display:flex;flex-direction:column;gap:0.6rem}
 
 .form-label{
-  font-family:'Space Mono',monospace;font-size:0.65rem;
+  font-family:'Roboto Mono',monospace;font-size:0.65rem;
   color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;
   font-weight:700;
 }
@@ -958,7 +946,7 @@ footer{
 .form-input{
   background:linear-gradient(135deg, rgba(0,212,255,0.03), rgba(124,58,237,0.02));
   border:1px solid var(--border);border-radius:10px;
-  padding:0.9rem 1.1rem;color:var(--text);font-family:'Space Mono',monospace;
+  padding:0.9rem 1.1rem;color:var(--text);font-family:'Roboto Mono',monospace;
   font-size:0.85rem;transition:all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   backdrop-filter:blur(10px);
 }
@@ -974,15 +962,15 @@ footer{
 .btn-send{
   background:linear-gradient(135deg, var(--accent), var(--accent2));
   color:var(--bg);border:none;border-radius:10px;padding:1rem 1.8rem;
-  font-family:'Space Mono',monospace;font-size:0.75rem;font-weight:700;
+  font-family:'Roboto Mono',monospace;font-size:0.75rem;font-weight:700;
   letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;
   transition:all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   display:flex;align-items:center;justify-content:center;gap:0.6rem;
-  box-shadow:0 10px 30px rgba(0,212,255,0.2);width:100%;
+  box-shadow:0 0 20px rgba(0,212,255,0.4), 0 10px 30px rgba(0,212,255,0.2);width:100%;
 }
 
 .btn-send:hover{
-  transform:translateY(-4px);box-shadow:0 15px 45px rgba(0,212,255,0.4);
+  transform:translateY(-4px);box-shadow:0 0 40px rgba(0,212,255,0.6), 0 15px 45px rgba(0,212,255,0.3);
 }
 
 .btn-send:disabled{
@@ -990,7 +978,7 @@ footer{
 }
 
 .form-message{
-  font-family:'Space Mono',monospace;font-size:0.8rem;text-align:center;
+  font-family:'Roboto Mono',monospace;font-size:0.8rem;text-align:center;
   padding:0.8rem;border-radius:8px;display:none;
   font-weight:600;letter-spacing:0.05em;
 }
@@ -1071,7 +1059,6 @@ footer{
         <div class="mobile-theme-buttons">
           <button class="mobile-theme-btn dark-btn active" onclick="setTheme('dark')" title="Dark">Dark</button>
           <button class="mobile-theme-btn light-btn" onclick="setTheme('light')" title="Light">Light</button>
-          <button class="mobile-theme-btn cyber-btn" onclick="setTheme('cyber')" title="Cyber">Cyber</button>
         </div>
       </div>
     </div>
@@ -1094,7 +1081,6 @@ footer{
         <span class="theme-label">Theme</span>
         <button class="theme-btn dark-btn active" onclick="setTheme('dark')" title="Dark">D</button>
         <button class="theme-btn light-btn" onclick="setTheme('light')" title="Light">L</button>
-        <button class="theme-btn cyber-btn" onclick="setTheme('cyber')" title="Cyber">C</button>
       </div>
       <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -1118,7 +1104,7 @@ footer{
         <p class="hero-desc">
           Senior Full Stack Developer crafting AI-powered systems,<br/>
           scalable cloud architectures &amp; real-time web apps<br/>
-          with Laravel, Node.js &amp; Microsoft Azure.
+          with CodeIgniter, Laravel, Node.js &amp; Microsoft Azure.
         </p>
         <div class="hero-ctas">
           <a href="#contact" class="btn-pri">
@@ -1130,6 +1116,11 @@ footer{
           <a href="Sayali-Jadhav-Resume.pdf" download class="btn-download">
             <i class="fa fa-download btn-icon"></i>Download CV
           </a>
+        </div>
+        <div class="hero-social-links" style="display:flex;gap:1.5rem;margin-top:1.5rem;align-items:center;">
+          <a href="https://linkedin.com/in/sayali-jadhav-1a04ba20a" target="_blank" style="color:var(--muted);text-decoration:none;font-size:0.85rem;display:flex;align-items:center;gap:0.5rem;transition:color 0.3s;"><i class="fab fa-linkedin"></i>LinkedIn</a>
+          <a href="mailto:sayalijadhav2017@gmail.com" style="color:var(--muted);text-decoration:none;font-size:0.85rem;display:flex;align-items:center;gap:0.5rem;transition:color 0.3s;"><i class="fas fa-envelope"></i>Email</a>
+          <a href="tel:+918010139938" style="color:var(--muted);text-decoration:none;font-size:0.85rem;display:flex;align-items:center;gap:0.5rem;transition:color 0.3s;"><i class="fas fa-phone"></i>+91 801-013-9938</a>
         </div>
         <div class="hero-stats">
           <div class="stat-item"><div class="stat-num">4.5+</div><div class="stat-label">Years Experience</div></div>
@@ -1602,11 +1593,14 @@ footer{
           }
         };
 
-        return fetch('https://api.emailjs.com/api/v1.0/email/send', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
+        return Promise.race([
+          fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          }),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 10000))
+        ]);
       }
       
       // Wait for EmailJS library to load with fallback
@@ -1645,13 +1639,19 @@ footer{
           contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
+            const sendButton = contactForm.querySelector('.btn-send');
+            const originalText = sendButton.innerHTML;
+            
             try {
               sendButton.disabled = true;
-              const originalText = sendButton.innerHTML;
               sendButton.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
               formMessage.className = 'form-message';
               
-              await sendEmailFallback(contactForm);
+              const response = await sendEmailFallback(contactForm);
+              
+              if (!response.ok) {
+                throw new Error('Email service error');
+              }
               
               formMessage.textContent = '✓ Message sent! I will reply soon.';
               formMessage.classList.add('success');
@@ -1661,9 +1661,11 @@ footer{
                 formMessage.className = 'form-message';
               }, 5000);
             } catch (error) {
+              console.log('Send error:', error.message);
               formMessage.textContent = '✗ Error sending message. Please email directly.';
               formMessage.classList.add('error');
             } finally {
+              // Always reset button
               sendButton.disabled = false;
               sendButton.innerHTML = originalText;
             }
