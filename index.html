@@ -1532,7 +1532,7 @@ footer{
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
 <script>
   function setTheme(t) {
     document.documentElement.setAttribute('data-theme', t);
@@ -1580,25 +1580,39 @@ footer{
       // EMAILJS SETUP - Loads from localStorage with error handling
       // ═══════════════════════════════════════════════════════════════════════════
       
-      // Get saved credentials from localStorage
-      const PUBLIC_KEY = localStorage.getItem('emailjs_public_key');
-      const SERVICE_ID = 'service_anvi_portpholio'; // Your Service ID
-      const EMAIL_TEMPLATE = 'template_spju54m'; // Your Template ID
+      // Global email configuration
+      const SERVICE_ID = 'service_anvi_portpholio';
+      const EMAIL_TEMPLATE = 'template_spju54m';
+      let initAttempts = 0;
+      const maxAttempts = 50; // Try for 5 seconds (50 * 100ms)
       
-      // Check if all credentials exist
-      if (!PUBLIC_KEY || !SERVICE_ID || !EMAIL_TEMPLATE) {
-        showSetupModal();
-        setupOtherFunctionality();
-        return;
+      // Wait for EmailJS library to load with better retry logic
+      function initializeEmail() {
+        initAttempts++;
+        
+        try {
+          if (typeof emailjs === 'undefined') {
+            if (initAttempts < maxAttempts) {
+              setTimeout(initializeEmail, 100);
+            } else {
+              console.log('EmailJS library failed to load after 5 seconds. Contact form disabled.');
+            }
+            return;
+          }
+          
+          const PUBLIC_KEY = 'QLGRIjp51qFjP-LWa';
+          
+          emailjs.init(PUBLIC_KEY);
+          setupContactForm();
+          console.log('✓ EmailJS ready - contact form active');
+        } catch (error) {
+          console.log('Email error:', error.message);
+        }
       }
       
-      // Initialize EmailJS with stored credentials
-      try {
-        emailjs.init(PUBLIC_KEY);
-        setupContactForm();
-      } catch (initError) {
-        showSetupModal('Invalid credentials. Please update them.');
-      }
+      // Give scripts a moment to load, then start checking
+      setTimeout(initializeEmail, 500);
+      setupOtherFunctionality();
       
       function setupContactForm() {
         try {
@@ -1651,35 +1665,27 @@ footer{
           container.style.cssText = 'background:linear-gradient(135deg, rgba(15,20,32,0.98), rgba(19,29,46,0.98));border:1px solid rgba(0,212,255,0.3);border-radius:16px;padding:2.5rem;max-width:500px;width:90%;box-shadow:0 25px 70px rgba(0,212,255,0.3);';
           
           var title = document.createElement('h2');
-          title.textContent = 'Setup EmailJS';
+          title.textContent = 'One Last Step!';
           title.style.cssText = 'color:#e4eaf2;margin-bottom:0.5rem;font-size:1.8rem;font-weight:900;font-family:Syne,sans-serif;background:linear-gradient(135deg, #00d4ff, #7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;';
           
           var desc = document.createElement('p');
-          desc.textContent = 'Paste your 3 credentials from EmailJS. They are saved in your browser.';
+          desc.textContent = 'Paste your EmailJS Public Key. It\'s saved in your browser and used to send emails securely.';
           desc.style.cssText = 'color:#8a9db5;margin-bottom:1.5rem;font-family:Space Mono,monospace;font-size:0.85rem;line-height:1.7;';
           
           var fieldsDiv = document.createElement('div');
           fieldsDiv.style.cssText = 'display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2rem;';
           
-          // Public Key field
-          var field1 = createInputField('Public Key', 'pubKeyInput', 'password', 'xABC123...');
+          // Public Key field only
+          var field1 = createInputField('Public Key from EmailJS', 'pubKeyInput', 'password', 'xABC123_your_public_key...');
           fieldsDiv.appendChild(field1);
           
-          // Service ID field
-          var field2 = createInputField('Service ID', 'serviceIdInput', 'text', 'service_abc123...');
-          fieldsDiv.appendChild(field2);
-          
-          // Template ID field
-          var field3 = createInputField('Template ID', 'templateIdInput', 'text', 'template_xyz789...');
-          fieldsDiv.appendChild(field3);
-          
           var button = document.createElement('button');
-          button.textContent = 'Save & Continue';
+          button.textContent = 'Activate Contact Form';
           button.style.cssText = 'width:100%;background:linear-gradient(135deg, #00d4ff, #7c3aed);color:#0a0e15;border:none;border-radius:10px;padding:1.1rem;font-family:Space Mono,monospace;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;box-shadow:0 10px 30px rgba(0,212,255,0.3);';
           button.onclick = saveCredentials;
           
           var note = document.createElement('p');
-          note.textContent = 'From EmailJS Dashboard - Account - API Keys';
+          note.innerHTML = '<strong>Dashboard:</strong> EmailJS Account → API Keys<br/>Service & Template IDs already set!';
           note.style.cssText = 'color:#8a9db5;margin-top:1.5rem;font-family:Space Mono,monospace;font-size:0.7rem;text-align:center;line-height:1.8;';
           
           container.appendChild(title);
