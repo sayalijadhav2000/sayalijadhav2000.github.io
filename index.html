@@ -1740,6 +1740,9 @@ footer{
             <label class="form-label">Message</label>
             <textarea class="form-input" id="message" name="message" placeholder="Tell me about your project or opportunity..." rows="5" required></textarea>
           </div>
+          <!-- Hidden fields for template compatibility -->
+          <input type="hidden" id="name" name="name">
+          <input type="hidden" id="email" name="email">
           <button type="submit" class="btn-send">
             <i class="fa fa-paper-plane"></i> Send Message
           </button>
@@ -1944,21 +1947,13 @@ footer{
               // Get all form values
               const userName = document.getElementById('user_name').value;
               const userEmail = document.getElementById('user_email').value;
-              const subject = document.getElementById('subject').value;
-              const message = document.getElementById('message').value;
               
-              // Create payload with all parameters (including duplicates for template compatibility)
-              const templateParams = {
-                user_name: userName,
-                name: userName,  // Duplicate for template
-                user_email: userEmail,
-                email: userEmail,  // Duplicate for template
-                subject: subject,
-                message: message
-              };
+              // Populate hidden fields for template compatibility
+              document.getElementById('name').value = userName;
+              document.getElementById('email').value = userEmail;
               
-              // Send email using EmailJS with explicit parameters
-              await emailjs.send(SERVICE_ID, EMAIL_TEMPLATE, templateParams);
+              // Send email using EmailJS
+              await emailjs.sendForm(SERVICE_ID, EMAIL_TEMPLATE, contactForm);
               
               formMessage.textContent = '✅ Message sent! You\'ll receive a confirmation email shortly.';
               formMessage.classList.add('success');
