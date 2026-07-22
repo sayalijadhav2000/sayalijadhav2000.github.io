@@ -1941,8 +1941,24 @@ footer{
               sendButton.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
               formMessage.className = 'form-message';
               
-              // Send email using EmailJS - auto-reply is handled in template settings
-              await emailjs.sendForm(SERVICE_ID, EMAIL_TEMPLATE, contactForm);
+              // Get all form values
+              const userName = document.getElementById('user_name').value;
+              const userEmail = document.getElementById('user_email').value;
+              const subject = document.getElementById('subject').value;
+              const message = document.getElementById('message').value;
+              
+              // Create payload with all parameters (including duplicates for template compatibility)
+              const templateParams = {
+                user_name: userName,
+                name: userName,  // Duplicate for template
+                user_email: userEmail,
+                email: userEmail,  // Duplicate for template
+                subject: subject,
+                message: message
+              };
+              
+              // Send email using EmailJS with explicit parameters
+              await emailjs.send(SERVICE_ID, EMAIL_TEMPLATE, templateParams);
               
               formMessage.textContent = '✅ Message sent! You\'ll receive a confirmation email shortly.';
               formMessage.classList.add('success');
